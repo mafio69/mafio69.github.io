@@ -1,29 +1,24 @@
-👋 # Hi, I'm Mariusz Franciszczak
+# mafio69.github.io.git
 
-An experienced **PHP, SQL, JavaScript programmer** with a passion for coding, problem solving and popular science content.
+## Project setup
+```
+npm install
+```
 
-## 🚀 Portfolio
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
 
-Here you will find my projects and presentations in the field of web programming.
+### Compiles and minifies for production
+```
+npm run build
+```
 
-- Home: [mafio69.github.io](https://mafio69.github.io)
-- Design example: [home/index.html](./home/index.html)
+### Lints and fixes files
+```
+npm run lint
+```
 
-## 💡 Technologies
-
-- **Backend:** PHP, SQL
-- **Frontend:** HTML, CSS, JavaScript
-- **Tools:** Git, GitHub, VSCode
-
-## 🌍 Interests
-
-Geopolitics, science, automation, popular science content and interesting projects on the borderline of IT.
-
-## 📫 Contact
-
-- Starogard Gdański, Poland
-- Email: mafio19@pm.me
-
----
-
-Want to know more? Go to [mafio69.github.io](https://mafio69.github.io) or go ahead and write!
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
