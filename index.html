@@ -1,91 +1,566 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mariusz - Mafio - Business Card Page</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <title>Mariusz - Portfolio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.global.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+
+        #app {
+            min-height: 100vh;
+        }
+
+        nav {
+            position: fixed;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #334155;
+            z-index: 50;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            background: linear-gradient(to right, #60a5fa, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-menu a {
+            color: #e2e8f0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #60a5fa;
+        }
+
+        .menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #e2e8f0;
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: #0f172a;
+                border-bottom: 1px solid #334155;
+                padding: 20px;
+                gap: 16px;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+        }
+
+        .hero {
+            padding-top: 120px;
+            padding-bottom: 80px;
+            text-align: center;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: 24px;
+            background: linear-gradient(to right, #60a5fa, #06b6d4, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #cbd5e1;
+            margin-bottom: 32px;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2563eb;
+            transform: scale(1.05);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #60a5fa;
+            border: 2px solid #60a5fa;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(96, 165, 250, 0.1);
+        }
+
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section:nth-child(even) {
+            background: rgba(30, 41, 59, 0.5);
+        }
+
+        h2 {
+            font-size: 40px;
+            margin-bottom: 48px;
+            text-align: center;
+        }
+
+        .experience-card {
+            background: rgba(71, 85, 105, 0.3);
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px solid #475569;
+            margin-bottom: 32px;
+            transition: all 0.3s;
+        }
+
+        .experience-card:hover {
+            border-color: #60a5fa;
+            box-shadow: 0 0 20px rgba(96, 165, 250, 0.2);
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+
+        .exp-company {
+            font-size: 24px;
+            font-weight: bold;
+            color: #60a5fa;
+        }
+
+        .exp-role {
+            color: #cbd5e1;
+            font-size: 16px;
+        }
+
+        .exp-period {
+            font-size: 14px;
+            color: #94a3b8;
+        }
+
+        .exp-desc {
+            color: #cbd5e1;
+            margin-top: 12px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .project-card {
+            background: rgba(71, 85, 105, 0.3);
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px solid #475569;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .project-card:hover {
+            border-color: #60a5fa;
+            box-shadow: 0 0 20px rgba(96, 165, 250, 0.2);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 12px;
+        }
+
+        .project-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .project-card:hover .project-title {
+            color: #60a5fa;
+        }
+
+        .project-desc {
+            font-size: 14px;
+            color: #94a3b8;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .tech-tag {
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+
+        .skill-category {
+            background: rgba(71, 85, 105, 0.3);
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px solid #475569;
+        }
+
+        .skill-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #60a5fa;
+            margin-bottom: 16px;
+        }
+
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-item {
+            background: #475569;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .skill-item:hover {
+            background: #3b82f6;
+        }
+
+        .contact-section {
+            text-align: center;
+        }
+
+        .contact-text {
+            font-size: 18px;
+            color: #cbd5e1;
+            margin-bottom: 32px;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            background: #3b82f6;
+            color: white;
+            border: 2px solid #3b82f6;
+        }
+
+        .contact-btn:hover {
+            background: transparent;
+            color: #60a5fa;
+        }
+
+        footer {
+            border-top: 1px solid #334155;
+            padding: 32px 20px;
+            text-align: center;
+            color: #94a3b8;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            .exp-header {
+                flex-direction: column;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-<header>
-    <h1>Mariusz</h1>
-    <p>Welcome to my page! I am an experienced PHP programmer with a passion for creating clean, efficient, and scalable software. For years, I've been developing my skills in the PHP ecosystem, but I also eagerly reach for modern frontend technologies like Vue.js to build complete and interactive applications.</p>
-</header>
+<div id="app">
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Mariusz</div>
+            <button class="menu-btn" v-on:click="toggleMenu">Menu</button>
+            <div class="nav-menu" v-bind:class="{ active: menuOpen }">
+                <a href="#about" v-on:click="menuOpen = false">O mnie</a>
+                <a href="#projects" v-on:click="menuOpen = false">Projekty</a>
+                <a href="#skills" v-on:click="menuOpen = false">Umiejętności</a>
+                <a href="#contact" v-on:click="menuOpen = false">Kontakt</a>
+            </div>
+        </div>
+    </nav>
 
-<main>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Full Stack Developer</h1>
+            <p>Doświadczony programista PHP, pasjonujący się tworzeniem czystego, wydajnego i skalowalnego oprogramowania. Specjalizuję się w Laravel, Symfony, Vue.js i nowoczesnych praktykach DevOps.</p>
+            <div class="button-group">
+                <a href="#contact" class="btn btn-primary">Skontaktuj się</a>
+                <a href="https://github.com/mafio69" target="_blank" class="btn btn-secondary">Mój GitHub</a>
+            </div>
+        </div>
+    </section>
+
     <section id="about">
-        <h2>About me</h2>
-        <p>Full Stack Web Developer, experienced in designing and building web applications, especially in PHP, Laravel, Vue.js, and Docker environments. I’ve worked in teams on complex legacy systems as well as modern cloud-based solutions.</p>
-
-        <h3>Professional Experience</h3>
-
-        <h4>Rubix – Full Stack Developer (Feb 2022 – Apr 2024, Remote)</h4>
-        <p>At Rubix, I was responsible for maintaining and developing an application with a highly complex, long-standing structure—a system based on heavily outdated legacy code, which required great caution and a deep understanding of the business context. My tasks included maintaining and developing applications, diagnosing and fixing challenging bugs, optimizing database performance, and participating in system deployment processes.</p>
-
-        <h4>ccFound – Full Stack Developer (March 2021 – February 2022)</h4>
-        <p>My role involved migrating a legacy codebase to Symfony, developing a new REST-compliant API, and deploying serverless systems on Google Cloud. Working at ccFound taught me to be a real “one-man band” – the scope of responsibilities was immense, requiring excellent organization and versatility.</p>
-
-        <h4>Sescom Polska – PHP Web Developer (November 2019 – December 2020)</h4>
-        <p>I co-developed applications in Laravel, implemented a vacation system, and ensured code quality according to SOLID and DRY principles. This job helped me reach a higher level of professionalism in programming.</p>
-
-        <h4>Asist Sp. z o.o. – Web Developer (August 2017 – October 2019)</h4>
-        <p>My responsibilities included designing and developing web applications in PHP, implementing an advanced car insurance search engine, and building a CRM system. I independently introduced object-oriented programming and supported the sales team.</p>
-
-        <h3>Skills</h3>
-        <ul>
-            <li><b>PHP:</b> OOP, Laravel, Symfony, legacy maintenance</li>
-            <li><b>JavaScript:</b> ES6+, Vue.js, jQuery</li>
-            <li><b>DevOps:</b> Docker, CI/CD (GitHub Actions, Jenkins), Google Cloud, OVH</li>
-            <li><b>Databases:</b> SQL (MySQL, PostgreSQL)</li>
-            <li><b>Frontend:</b> Blade, pure JS, HTML5, CSS3</li>
-            <li><b>Other:</b> REST API, Git (Bitbucket, GitHub), Design patterns (SOLID, DRY, DAO, DTO)</li>
-        </ul>
-        <p>I am passionate about new technologies, artificial intelligence, cloud infrastructure, and DevOps. I enjoy sharing knowledge, gaming, and improving my language skills. I prefer remote work but am always open to interesting projects.</p>
+        <h2>Doświadczenie zawodowe</h2>
+        <div>
+            <div v-for="exp in experiences" v-bind:key="exp.id" class="experience-card">
+                <div class="exp-header">
+                    <div>
+                        <div class="exp-company">{{ exp.company }}</div>
+                        <div class="exp-role">{{ exp.role }}</div>
+                    </div>
+                    <div class="exp-period">{{ exp.period }}</div>
+                </div>
+                <div class="exp-desc">{{ exp.description }}</div>
+            </div>
+        </div>
     </section>
 
     <section id="projects">
-        <h2>Projects</h2>
-        <ul>
-            <li><a href="https://github.com/mafio69/startapp">Docker Start: PHP Development Environment</a></li>
-            <li><a href="https://github.com/mafio69/kolejki">Mountain Queue System (REST API)</a></li>
-            <li><a href="https://github.com/mafio69/portfolio-azure">Full-Stack Portfolio (Vue.js + PHP)</a></li>
-        </ul>
+        <h2>Projekty</h2>
+        <div class="projects-grid">
+            <a v-for="project in projects" v-bind:key="project.id" v-bind:href="project.link" target="_blank" class="project-card">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">{{ project.name }}</div>
+                        <div class="project-desc">{{ project.desc }}</div>
+                    </div>
+                </div>
+                <div class="tech-tags">
+                    <span v-for="tech in project.tech" v-bind:key="tech" class="tech-tag">{{ tech }}</span>
+                </div>
+            </a>
+        </div>
     </section>
 
     <section id="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li>Programming Languages: PHP, JavaScript, HTML, CSS, SQL</li>
-            <li>Frameworks: Symfony, Laravel, CakePHP, Vue.js, jQuery</li>
-            <li>Databases: MySQL</li>
-            <li>Testing: PHPUnit, Functional Testing</li>
-            <li>DevOps: Docker, Git, Bitbucket, Linux</li>
-            <li>Tools: PHPStorm, Jira, Trello, GCloud, Composer, Webpack, Laravel Mix</li>
-            <li>Other: XML, Microsoft Office, Adobe Photoshop, CorelDraw</li>
-        </ul>
+        <h2>Umiejętności</h2>
+        <div class="skills-grid">
+            <div v-for="skillGroup in skills" v-bind:key="skillGroup.category" class="skill-category">
+                <div class="skill-title">{{ skillGroup.category }}</div>
+                <div class="skill-items">
+                    <span v-for="item in skillGroup.items" v-bind:key="item" class="skill-item">{{ item }}</span>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="education">
-        <h2>Education</h2>
-        <ul>
-            <li>
-                <h3>IT Studies, Starogard Gdański</h3>
-                <p>IT Studies, 2009 - 2011</p>
-            </li>
-        </ul>
+    <section id="contact" class="contact-section">
+        <h2>Nawiążmy kontakt</h2>
+        <p class="contact-text">Zawsze jestem zainteresowany nowymi projektami i możliwościami.</p>
+        <div class="contact-buttons">
+            <a href="mailto:mafio19@pm.me" class="contact-btn">Email</a>
+            <a href="https://www.linkedin.com/in/mariusz-franciszczak-mafio/" target="_blank" class="contact-btn">LinkedIn</a>
+            <a href="https://github.com/mafio69" target="_blank" class="contact-btn">GitHub</a>
+        </div>
     </section>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: mafio19@pm.me</p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/mariusz-franciszczak-mafio/">My LinkedIn Profile</a></p>
-        <p>GitHub: <a href="https://github.com/mafio69">My GitHub Profile</a></p>
-    </section>
-</main>
+    <footer>
+        <p>© 2025 Mariusz. Wszystkie prawa zastrzeżone.</p>
+    </footer>
+</div>
 
-<footer>
-    <p>&copy; 2023 Mariusz. All rights reserved.</p>
-</footer>
+<script>
+    const { createApp } = Vue;
+
+    createApp({
+        data: function() {
+            return {
+                menuOpen: false,
+                experiences: [
+                    {
+                        id: 1,
+                        company: "Rubix",
+                        role: "Full Stack Developer",
+                        period: "Feb 2022 – Apr 2024",
+                        location: "Remote",
+                        description: "Obsługa i rozwój złożonych systemów legacy, naprawianie trudnych błędów, optymalizacja wydajności bazy danych oraz uczestnictwo w procesach wdrażania systemów."
+                    },
+                    {
+                        id: 2,
+                        company: "ccFound",
+                        role: "Full Stack Developer",
+                        period: "Marzec 2021 – Luty 2022",
+                        description: "Migracja starej bazy kodu do Symfony, tworzenie nowego REST API, wdrażanie systemów serverless na Google Cloud."
+                    },
+                    {
+                        id: 3,
+                        company: "Sescom Polska",
+                        role: "PHP Web Developer",
+                        period: "Listopad 2019 – Grudzień 2020",
+                        description: "Tworzenie aplikacji w Laravel, implementacja systemu urlopów, zapewnianie jakości kodu zgodnie z zasadami SOLID i DRY."
+                    },
+                    {
+                        id: 4,
+                        company: "Asist Sp. z o.o.",
+                        role: "Web Developer",
+                        period: "Sierpień 2017 – Październik 2019",
+                        description: "Projektowanie i tworzenie aplikacji webowych w PHP, implementacja zaawansowanego wyszukiwarki ubezpieczeń samochodowych, budowa systemu CRM."
+                    }
+                ],
+                projects: [
+                    {
+                        id: 1,
+                        name: "Docker Start",
+                        desc: "Środowisko PHP Development",
+                        link: "https://github.com/mafio69/startapp",
+                        tech: ["Docker", "PHP", "Development"]
+                    },
+                    {
+                        id: 2,
+                        name: "Mountain Queue System",
+                        desc: "Implementacja REST API",
+                        link: "https://github.com/mafio69/kolejki",
+                        tech: ["PHP", "REST API", "Backend"]
+                    },
+                    {
+                        id: 3,
+                        name: "Full-Stack Portfolio",
+                        desc: "Aplikacja Vue.js + PHP",
+                        link: "https://github.com/mafio69/portfolio-azure",
+                        tech: ["Vue.js", "PHP", "Full-Stack"]
+                    }
+                ],
+                skills: [
+                    {
+                        category: "Backend",
+                        items: ["PHP", "Laravel", "Symfony", "OOP", "SOLID", "Design Patterns"]
+                    },
+                    {
+                        category: "Frontend",
+                        items: ["Vue.js", "JavaScript ES6+", "HTML5", "CSS3", "jQuery"]
+                    },
+                    {
+                        category: "DevOps",
+                        items: ["Docker", "CI/CD", "GitHub Actions", "Jenkins", "Google Cloud"]
+                    },
+                    {
+                        category: "Baza danych",
+                        items: ["MySQL", "PostgreSQL", "SQL"]
+                    }
+                ]
+            };
+        },
+        methods: {
+            toggleMenu: function() {
+                this.menuOpen = !this.menuOpen;
+            }
+        }
+    }).mount('#app');
+</script>
 </body>
 </html>
