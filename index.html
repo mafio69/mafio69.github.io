@@ -256,11 +256,8 @@
         }
 
         .hero {
-            padding-top: 120px;
-            padding-bottom: 80px;
+            padding: 120px 20px 80px;
             text-align: center;
-            padding-left: 20px;
-            padding-right: 20px;
         }
 
         .hero-content {
@@ -584,7 +581,11 @@
     <section class="hero">
         <div class="hero-content">
             <h1>Full Stack Developer</h1>
-            <p>Doświadczony programista PHP, pasjonujący się tworzeniem czystego, wydajnego i skalowalnego oprogramowania. Specjalizuję się w Laravel, Symfony, Vue.js i nowoczesnych praktykach DevOps.</p>
+            <p>Jestem programistą PHP z wieloletnim doświadczeniem w tworzeniu i rozwijaniu aplikacji webowych. Pracuję głównie z backendem, ale swobodnie poruszam się także w obszarze frontendu, baz danych, testów i wdrożeń.
+
+                Najczęściej pracuję z PHP, Symfony, Laravel, JavaScript, MySQL, Dockerem i PHPUnit. Cenię prosty, czytelny kod, dobrą organizację pracy oraz rozwiązania, które są stabilne i łatwe w utrzymaniu.
+
+                W pracy stawiam na odpowiedzialność, techniczną rzetelność i praktyczne podejście do problemów.</p>
             <div class="button-group">
                 <a href="#contact" class="btn btn-primary">Skontaktuj się</a>
                 <a href="https://github.com/mafio69" target="_blank" class="btn btn-secondary">Mój GitHub</a>
@@ -693,24 +694,45 @@
                 projects: [
                     {
                         id: 1,
-                        name: "Docker Start",
-                        desc: "Środowisko PHP Development",
-                        link: "https://github.com/mafio69/startapp",
-                        tech: ["Docker", "PHP", "Development"]
-                    },
-                    {
-                        id: 2,
-                        name: "Mountain Queue System",
+                        name: "kolejki",
                         desc: "Implementacja REST API",
                         link: "https://github.com/mafio69/kolejki",
                         tech: ["PHP", "REST API", "Backend"]
                     },
                     {
+                        id: 2,
+                        name: "petstore-crud",
+                        desc: "Aplikacja CRUD Pet Store",
+                        link: "https://github.com/mafio69/petstore-crud",
+                        tech: ["PHP", "CRUD", "API"]
+                    },
+                    {
                         id: 3,
-                        name: "Full-Stack Portfolio",
-                        desc: "Aplikacja Vue.js + PHP",
-                        link: "https://github.com/mafio69/portfolio-azure",
-                        tech: ["Vue.js", "PHP", "Full-Stack"]
+                        name: "fast-php-log-viewer",
+                        desc: "Szybki podgląd logów PHP",
+                        link: "https://github.com/mafio69/fast-php-log-viewer",
+                        tech: ["PHP", "Logs", "Developer Tools"]
+                    },
+                    {
+                        id: 4,
+                        name: "php-logger",
+                        desc: "Biblioteka logowania dla PHP",
+                        link: "https://github.com/mafio69/php-logger",
+                        tech: ["PHP", "Logger", "Library"]
+                    },
+                    {
+                        id: 5,
+                        name: "blog-mafio-pl",
+                        desc: "Blog engine dla mafio.pl",
+                        link: "https://github.com/mafio69/blog-mafio-pl",
+                        tech: ["PHP", "Blog", "CMS"]
+                    },
+                    {
+                        id: 6,
+                        name: "wirralAI",
+                        desc: "Aplikacja wspomagana AI",
+                        link: "https://github.com/mafio69/wirralAI",
+                        tech: ["PHP", "AI", "Backend"]
                     }
                 ],
                 skills: [
@@ -729,6 +751,10 @@
                     {
                         category: "Baza danych",
                         items: ["MySQL", "PostgreSQL", "SQL"]
+                    },
+                    {
+                        category: "AI",
+                        items: ["GitHub Copilot", "Claude Code", "OpenCode", "AI endpoint"]
                     }
                 ]
             };
