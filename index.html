@@ -39,10 +39,6 @@
                 <a href="#projects" v-on:click="menuOpen = false">{{ t('nav.projects') }}</a>
                 <a href="#skills" v-on:click="menuOpen = false">{{ t('nav.skills') }}</a>
                 <a href="#contact" v-on:click="menuOpen = false">{{ t('nav.contact') }}</a>
-                <div class="lang-switcher-mobile">
-                    <button v-on:click="setLocale('en')" v-bind:class="{ active: locale === 'en' }">🇬🇧</button>
-                    <button v-on:click="setLocale('pl')" v-bind:class="{ active: locale === 'pl' }">🇵🇱</button>
-                </div>
             </div>
             <div class="lang-switcher">
                 <button v-on:click="setLocale('en')" v-bind:class="{ active: locale === 'en' }">🇬🇧</button>
