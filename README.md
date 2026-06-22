@@ -9,6 +9,7 @@ A modern, responsive portfolio website showcasing Full Stack development experti
 - **Modern Design**: Clean, professional interface with smooth animations
 - **Responsive Layout**: Optimized for all devices (mobile, tablet, desktop)
 - **Interactive Elements**: Dynamic background animations and hover effects
+- **Bilingual (PL/EN)**: Language switcher with full i18n support
 - **Performance Optimized**: Fast loading with minimal dependencies
 - **SEO Friendly**: Semantic HTML5 structure with proper meta tags
 - **Accessible**: WCAG compliant with keyboard navigation support
@@ -40,7 +41,14 @@ A modern, responsive portfolio website showcasing Full Stack development experti
 ```
 mafio69.github.io/
 ├── index.html          # Main portfolio page
+├── css/
+│   └── style.css       # Styles
+├── js/
+│   └── app.js          # Vue.js 3 application
+├── img/                # Images directory
+├── home/               # Older static portfolio pages
 ├── README.md           # This file
+├── LICENSE             # MIT License
 ├── .gitignore          # Git ignore rules
 └── .gitattributes      # Git file attributes
 ```
@@ -50,7 +58,7 @@ mafio69.github.io/
 This portfolio is designed for GitHub Pages deployment:
 
 1. **Repository**: `mafio69/mafio69.github.io`
-2. **Branch**: `main` (or `vue`)
+2. **Branch**: `master`
 3. **URL**: `https://mafio69.github.io`
 4. **Build Process**: No build step required (static HTML)
 
@@ -74,17 +82,17 @@ This portfolio is designed for GitHub Pages deployment:
 
 To personalize this portfolio for your use:
 
-1. **Contact Information**: Update email and social links
-2. **Content**: Replace experience, projects, and skills
-3. **Styling**: Modify CSS variables in `<style>` section
-4. **Animations**: Adjust timing and effects in CSS animations
+1. **Content**: Edit `js/app.js` – update experiences, projects, skills, translations
+2. **Styling**: Modify `css/style.css` – colors, layout, animations
+3. **Contact Information**: Update email and social links in `index.html` and `js/app.js`
+4. **Translations**: Add or edit language strings in the `translations` object in `js/app.js`
 
 ## 📈 Maintenance
 
-- **Content Updates**: Edit HTML directly
-- **Style Changes**: Modify CSS in `<style>` section
+- **Content Updates**: Edit `js/app.js` – data, translations
+- **Style Changes**: Modify `css/style.css`
 - **Performance**: Monitor with Lighthouse/PageSpeed
-- **SEO**: Update meta tags and content regularly
+- **SEO**: Update meta tags in `index.html` regularly
 
 ## 🤝 Contributing
 
