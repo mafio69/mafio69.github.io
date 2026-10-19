@@ -108,13 +108,6 @@ createApp({
                     tech: ["PHP", "Logger", "Library"]
                 },
                 {
-                    id: 5,
-                    name: "blog-mafio-pl",
-                    desc: { pl: "Blog engine dla mafio.pl", en: "Blog Engine for mafio.pl" },
-                    link: "https://github.com/mafio69/blog-mafio-pl",
-                    tech: ["PHP", "Blog", "CMS"]
-                },
-                {
                     id: 6,
                     name: "virral-agents",
                     desc: { pl: "Panel do wielu modeli AI z narz\u0119dziami MCP", en: "One panel for many AI models with MCP tools" },
