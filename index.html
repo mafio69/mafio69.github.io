@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html lang="pl" v-bind:lang="locale">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mariusz - Portfolio</title>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Mariusz Franciszczak — programista PHP</title>
+    <meta name="description" content="Programista PHP (Symfony, Slim, Laravel, Docker). Przyjmuję małe, konkretne zlecenia i audyty kodu.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mafio69.github.io/">
+    <meta property="og:title" content="Mariusz Franciszczak — programista PHP">
+    <meta property="og:description" content="Symfony, Slim, Laravel, Docker, praca z AI. Przyjmuję małe, konkretne zlecenia i audyty kodu.">
+    <meta property="og:image" content="https://mafio69.github.io/img/og.png">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%233b82f6'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='white' font-family='sans-serif'%3EMF%3C/text%3E%3C/svg%3E">
+    <script src="https://unpkg.com/vue@3.5.13/dist/vue.global.prod.js"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -29,7 +36,7 @@
     <div class="particle particle-5"></div>
 </div>
 
-<div id="app">
+<div id="app" v-cloak>
     <nav>
         <div class="nav-container">
             <div class="logo">Mariusz</div>
@@ -114,7 +121,7 @@
     </section>
 
     <footer>
-        <p>{{ t('footer.text') }}</p>
+        <p>&copy; {{ year }} {{ t('footer.text') }}</p>
     </footer>
 </div>
 

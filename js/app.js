@@ -4,6 +4,7 @@ createApp({
     data: function() {
         return {
             menuOpen: false,
+            year: new Date().getFullYear(),
             locale: navigator.language.startsWith('pl') ? 'pl' : 'en',
             translations: {
                 nav: {
@@ -15,8 +16,8 @@ createApp({
                 hero: {
                     title: { pl: "Full Stack Developer", en: "Full Stack Developer" },
                     desc: {
-                        pl: "Jestem programist\u0105 PHP z wieloletnim do\u015bwiadczeniem w tworzeniu i rozwijaniu aplikacji webowych. Pracuj\u0119 g\u0142\u00f3wnie z backendem, ale swobodnie poruszam si\u0119 tak\u017ce w obszarze frontendu, baz danych, test\u00f3w i wdro\u017ce\u0144.\n\nNajcz\u0119\u015bciej pracuj\u0119 z PHP, Symfony, Laravel, JavaScript, MySQL, Dockerem i PHPUnit. Cen\u0119 prosty, czytelny kod, dobr\u0105 organizacj\u0119 pracy oraz rozwi\u0105zania, kt\u00f3re s\u0105 stabilne i \u0142atwe w utrzymaniu.\n\nW pracy stawiam na odpowiedzialno\u015b\u0107, techniczn\u0105 rzetelno\u015b\u0107 i praktyczne podej\u015bcie do problem\u00f3w.",
-                        en: "Full Stack Web Developer, experienced in designing and building web applications, especially in PHP, Laravel, Symfony, Vue.js, and Docker environments. I've worked on complex legacy systems as well as modern cloud-based solutions. I value clean, readable code, good organization, and solutions that are stable and maintainable."
+                        pl: "Jestem programist\u0105 PHP z wieloletnim do\u015bwiadczeniem w tworzeniu i rozwijaniu aplikacji webowych. Pracuj\u0119 g\u0142\u00f3wnie z backendem, ale swobodnie poruszam si\u0119 tak\u017ce w obszarze frontendu, baz danych, test\u00f3w i wdro\u017ce\u0144.\n\nNajcz\u0119\u015bciej pracuj\u0119 z PHP, Symfony, Laravel, JavaScript, MySQL, Dockerem i PHPUnit. Cen\u0119 prosty, czytelny kod, dobr\u0105 organizacj\u0119 pracy oraz rozwi\u0105zania, kt\u00f3re s\u0105 stabilne i \u0142atwe w utrzymaniu.\n\nW pracy stawiam na odpowiedzialno\u015b\u0107, techniczn\u0105 rzetelno\u015b\u0107 i praktyczne podej\u015bcie do problem\u00f3w.\n\nObecnie przyjmuj\u0119 ma\u0142e, konkretne zlecenia: audyty kodu i baz danych, pojedyncze modu\u0142y, wsparcie zespo\u0142u, gdy brakuje r\u0105k.",
+                        en: "Full Stack Web Developer, experienced in designing and building web applications, especially in PHP, Laravel, Symfony, Vue.js, and Docker environments. I've worked on complex legacy systems as well as modern cloud-based solutions. I value clean, readable code, good organization, and solutions that are stable and maintainable.\n\nCurrently available for small, well-defined tasks: code and database audits, single modules, short-term team support."
                     },
                     contactBtn: { pl: "Skontaktuj si\u0119", en: "Contact Me" },
                     githubBtn: { pl: "M\u00f3j GitHub", en: "My GitHub" }
@@ -28,10 +29,10 @@ createApp({
                     contact: { pl: "Nawi\u0105\u017cmy kontakt", en: "Let's Connect" }
                 },
                 contact: {
-                    text: { pl: "Zawsze jestem zainteresowany nowymi projektami i mo\u017cliwo\u015bciami.", en: "Always interested in new projects and opportunities." }
+                    text: { pl: "Masz ma\u0142e zadanie albo potrzebujesz audytu? Napisz \u2014 ch\u0119tnie porozmawiam.", en: "Have a small task or need an audit? Get in touch." }
                 },
                 footer: {
-                    text: { pl: "\u00a9 2025 Mariusz. Wszystkie prawa zastrze\u017cone.", en: "\u00a9 2025 Mariusz. All rights reserved." }
+                    text: { pl: "Mariusz Franciszczak. Wszystkie prawa zastrze\u017cone.", en: "Mariusz Franciszczak. All rights reserved." }
                 }
             },
             experiences: [
@@ -115,10 +116,17 @@ createApp({
                 },
                 {
                     id: 6,
-                    name: "wirralAI",
-                    desc: { pl: "Aplikacja wspomagana AI", en: "AI Powered Application" },
-                    link: "https://github.com/mafio69/wirralAI",
-                    tech: ["PHP", "AI", "Backend"]
+                    name: "virral-agents",
+                    desc: { pl: "Panel do wielu modeli AI z narz\u0119dziami MCP", en: "One panel for many AI models with MCP tools" },
+                    link: "https://github.com/mafio69/virral-agents",
+                    tech: ["PHP", "Slim", "AI", "MCP"]
+                },
+                {
+                    id: 7,
+                    name: "szukaj",
+                    desc: { pl: "W\u0142asna wyszukiwarka dla ludzi i agent\u00f3w AI", en: "Self-hosted search for people and AI agents" },
+                    link: "https://github.com/mafio69/szukaj",
+                    tech: ["Python", "SearXNG", "MCP", "React"]
                 }
             ],
             skills: [
@@ -140,7 +148,7 @@ createApp({
                 },
                 {
                     category: { pl: "AI", en: "AI" },
-                    items: ["GitHub Copilot", "Claude Code", "OpenCode", "AI endpoint"]
+                    items: ["GitHub Copilot", "Claude Code", "OpenCode", "MCP", "AI endpoint"]
                 }
             ]
         };
@@ -181,6 +189,9 @@ createApp({
             });
         }
     },
+    mounted: function() {
+        document.documentElement.lang = this.locale;
+    },
     methods: {
         t: function(key) {
             var keys = key.split('.');
@@ -192,6 +203,7 @@ createApp({
         },
         setLocale: function(loc) {
             this.locale = loc;
+            document.documentElement.lang = loc;
         },
         toggleMenu: function() {
             this.menuOpen = !this.menuOpen;
