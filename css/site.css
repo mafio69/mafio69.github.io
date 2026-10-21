@@ -197,6 +197,9 @@ h1, h2, h3 { margin: 0; text-wrap: balance; }
 .hero .btns { margin-top: 32px; }
 .hero .langs { margin-top: 40px; }
 
+/* Projekt bez własnego koloru w tokenach (TypeScript) */
+[data-project="ts"] { --accent: var(--ink); --accent-soft: var(--surface-2); }
+
 /* --- karty projektów --- */
 .card {
   border: 1px solid var(--line);
