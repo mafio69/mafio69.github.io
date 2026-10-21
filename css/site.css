@@ -256,6 +256,7 @@ h1, h2, h3 { margin: 0; text-wrap: balance; }
   gap: 8px;
 }
 .card-sm .state { display: flex; align-items: center; gap: 8px; font-size: 15px; color: var(--muted); }
+.card-shot { border-radius: 12px; border: 1px solid var(--line); }
 .card-sm .more { margin-top: auto; padding-top: 6px; font-weight: 600; font-size: 16px; }
 
 /* --- listy (mniejsze projekty, zadania rekrutacyjne) --- */
