@@ -1,130 +1,202 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mariusz Franciszczak — programista PHP</title>
-    <meta name="description" content="Programista PHP (Symfony, Slim, Laravel, Docker). Przyjmuję małe, konkretne zlecenia i audyty kodu.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mafio69.github.io/">
-    <meta property="og:title" content="Mariusz Franciszczak — programista PHP">
-    <meta property="og:description" content="Symfony, Slim, Laravel, Docker, praca z AI. Przyjmuję małe, konkretne zlecenia i audyty kodu.">
-    <meta property="og:image" content="https://mafio69.github.io/img/og.png">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%233b82f6'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='white' font-family='sans-serif'%3EMF%3C/text%3E%3C/svg%3E">
-    <script src="https://unpkg.com/vue@3.5.13/dist/vue.global.prod.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mariusz Franciszczak — programista PHP</title>
+<meta name="description" content="Programista PHP (Symfony, Slim, Laravel, Docker), ponad 6 lat komercyjnie. Buduję z AI realne projekty. Przyjmuję małe zlecenia i audyty kodu.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mafio69.github.io/">
+<meta property="og:title" content="Mariusz Franciszczak — programista PHP">
+<meta property="og:description" content="Realne projekty budowane z AI: PHP na co dzień, na próbę Python i C++. Małe zlecenia i audyty kodu.">
+<meta property="og:image" content="https://mafio69.github.io/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<script>
+  try { var t = localStorage.getItem('theme'); } catch (e) {}
+  document.documentElement.dataset.theme = t || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/site.css">
+<script src="js/bg-fx.js" defer></script>
+<script src="js/theme.js" defer></script>
 </head>
 <body>
-<!-- Animated Background -->
-<div class="animated-bg">
-    <!-- Floating circles -->
-    <div class="shape shape-1"></div>
-    <div class="shape shape-2"></div>
-    <div class="shape shape-3"></div>
-    <div class="shape shape-4"></div>
-    <div class="shape shape-5"></div>
+<div class="wrap">
 
-    <!-- Rotating geometric shapes -->
-    <div class="geometric geo-1"></div>
-    <div class="geometric geo-2"></div>
+<header class="top">
+  <a class="brand" href="./"><img src="favicon.svg" alt="">Mariusz Franciszczak</a>
+  <nav class="nav" aria-label="Główna">
+    <a href="#projekty">Projekty</a>
+    <a href="#prywatne">Prywatne</a>
+    <a href="#eksperyment">Eksperyment</a>
+    <a href="#doswiadczenie">Doświadczenie</a>
+    <a href="#kontakt">Kontakt</a>
+    <button class="theme-btn" type="button" aria-label="Zmień motyw">Ciemny</button>
+  </nav>
+</header>
 
-    <!-- Floating particles -->
-    <div class="particle particle-1"></div>
-    <div class="particle particle-2"></div>
-    <div class="particle particle-3"></div>
-    <div class="particle particle-4"></div>
-    <div class="particle particle-5"></div>
+<main>
+<section class="hero">
+  <div class="hero-fx" aria-hidden="true"><bg-fx kind="dots"></bg-fx></div>
+  <div class="hero-in">
+    <span class="pill"><span class="dot"></span>Przyjmuję małe, konkretne zlecenia i audyty kodu</span>
+    <h1>Programista PHP, który buduje z AI realne projekty.</h1>
+    <p class="sub">Ponad 6 lat komercyjnie: Symfony, Slim, Laravel, Docker. W nowych projektach ja pilnuję wymagań, architektury i testów — AI pisze kod. Na co dzień w PHP, na próbę także w Pythonie i C++.</p>
+    <div class="btns">
+      <a class="btn btn--main" href="#kontakt">Napisz do mnie</a>
+      <a class="btn btn--line" href="https://github.com/mafio69">GitHub</a>
+    </div>
+    <div class="langs">
+      <span data-project="virral">PHP</span>
+      <span data-project="szukaj">Python</span>
+      <span data-project="komunikator">C++</span>
+    </div>
+  </div>
+</section>
+
+<section id="projekty" class="section">
+  <div class="section-head"><span class="num">01</span><h2 class="h2">Projekty PHP</h2></div>
+
+  <article class="card card-big" data-project="virral">
+    <div class="card-body">
+      <div class="tags"><span class="lang">PHP</span><span>najnowszy</span></div>
+      <h3 class="card-name">virral-agents</h3>
+      <p>Prywatny czat z wieloma modelami AI na własnym serwerze. Model może tylko zaproponować wyszukiwanie w sieci — wykonuje je dopiero zgoda użytkownika. Historia rozmów szyfrowana w bazie.</p>
+      <div class="tags"><span>Slim 4</span><span>PHP 8.4</span><span>6 dostawców AI</span><span>szyfrowanie</span><span>Docker</span></div>
+      <div class="btns">
+        <a class="btn btn--sm btn--main" href="projekty/virral-agents/">Zobacz projekt →</a>
+        <a class="btn btn--sm btn--line" href="https://github.com/mafio69/virral-agents">Kod</a>
+      </div>
+    </div>
+    <div class="card-pic">
+      <img src="img/shots/virral-czat.jpg" alt="Okno czatu virral-agents z listą źródeł i polem wiadomości" width="1280" height="720" loading="lazy">
+    </div>
+  </article>
+
+  <div class="list" style="margin-top:24px">
+    <a href="https://github.com/mafio69/fast-php-log-viewer"><span class="mono">fast-php-log-viewer</span><span class="muted">samodzielna przeglądarka logów PHP ↗</span></a>
+    <a href="https://github.com/mafio69/php-devcontainer-starter"><span class="mono">php-devcontainer-starter</span><span class="muted">start projektu: PHP + Docker + narzędzia jakości ↗</span></a>
+    <a href="https://github.com/mafio69/php-logger"><span class="mono">php-logger</span><span class="muted">logger PSR-3 jako pakiet Composera ↗</span></a>
+  </div>
+</section>
+
+<section id="prywatne" class="section">
+  <div class="section-head"><span class="num">02</span><h2 class="h2">Projekty prywatne</h2></div>
+  <div class="read" style="margin-bottom:32px">
+    <p class="txt">Dwa projekty, z których korzystam na co dzień. Kod jest prywatny: oba są w fazie rozwoju i łączą się z wieloma usługami — modelami AI, pocztą, kalendarzem, bazą w chmurze. Sekrety trzymam zaszyfrowane, ale przy tylu integracjach wolę udostępnić kod dopiero po audycie bezpieczeństwa. Chętnie pokażę, jak działają.</p>
+  </div>
+  <div class="grid-cards">
+    <article class="card card-sm" data-project="virral">
+      <div class="row"><span class="tags"><span class="lang">PHP</span></span><span class="state"><span class="dot"></span>działa 24/7 w domu</span></div>
+      <h3 class="card-name card-name--sm">DevBrain</h3>
+      <p>„Drugi mózg” programisty: zadania, monitoring poczty i serwer MCP, przez który agenci AI dopisują i odhaczają zadania.</p>
+      <div class="tags"><span>Symfony 8.1</span><span>PHP 8.4</span><span>HTMX</span><span>PostgreSQL 17</span><span>MCP</span></div>
+      <a class="more" href="#kontakt">Zapytaj o pokaz →</a>
+    </article>
+    <article class="card card-sm" data-project="ts">
+      <div class="row"><span class="tags"><span class="lang">TypeScript</span></span><span class="state"><span class="dot dot--ring"></span>w rozwoju</span></div>
+      <h3 class="card-name card-name--sm">Agrafe</h3>
+      <p>Kancelaria i sprawy: wrzucasz pismo urzędowe, zdjęcie albo PDF — Agrafe wyjaśnia po ludzku, co to jest, jaki jest termin i co zrobić krok po kroku. Terminy trafiają do Kalendarza Google, zadania na listę. Dokumenty szyfrowane, imiona i numery maskowane na ekranie.</p>
+      <div class="tags"><span>React 19</span><span>Node 22</span><span>AI z rozpoznawaniem obrazu</span><span>Google API</span><span>Vitest</span></div>
+      <a class="more" href="#kontakt">Zapytaj o pokaz →</a>
+    </article>
+  </div>
+  <div class="priv-shots" data-project="virral">
+    <figure><img src="img/shots/devbrain-panel.jpg" alt="Panel DevBrain: zegar, pomodoro, zadania, kopie zapasowe, linki do usług domowego serwera, skan z OCR" width="2558" height="1105"><figcaption>DevBrain na komputerze: zadania, pomodoro, kopie zapasowe, usługi serwera, OCR. Dane prywatne zamazane.</figcaption></figure>
+    <figure><img src="img/shots/devbrain-tokeny-mcp.jpg" alt="DevBrain na telefonie: tokeny dostępu MCP z terminem ważności" width="637" height="556"><figcaption>Na telefonie: tokeny MCP dla agentów AI, z terminem ważności.</figcaption></figure>
+    <figure><img src="img/shots/devbrain-notatki.jpg" alt="DevBrain: notatki klucz–wartość, wartości poufne ukryte" width="1301" height="742"><figcaption>Notatki klucz → wartość: polecenia pod ręką, wartości poufne ukryte.</figcaption></figure>
+    <figure><img src="img/shots/devbrain-lista.jpg" alt="Lista zadań projektu ocr-ai z priorytetami P0–P3" width="656" height="741"><figcaption>Zadania z priorytetami — tu przegląd projektu ocr-ai.</figcaption></figure>
+    <figure class="full"><img src="img/shots/devbrain-zadanie.jpg" alt="Edycja zadania w DevBrain: opis, status, gałąź, komentarze" width="1251" height="683"><figcaption>Zadanie: opis zmiany z uzasadnieniem, status, link do gałęzi, komentarze.</figcaption></figure>
+    <figure class="full"><img src="img/shots/agrafe-start.jpg" alt="Agrafe: ekran startowy — logowanie kontem Google, zakresy dostępu, zasady ochrony danych" width="1932" height="1184"><figcaption>Agrafe: ekran startowy — logowanie kontem Google i jawna lista zakresów dostępu (Gmail, Dysk, Kalendarz, Zadania).</figcaption></figure>
+    <figure class="full"><img src="img/shots/agrafe-nowe-pismo.jpg" alt="Agrafe: dodawanie nowego pisma — zdjęcie, plik, e-mail albo wpis z ręki" width="1878" height="891"><figcaption>Dodawanie pisma: zdjęcie, plik (także HEIC i PDF), wklejony e-mail albo notatka z ręki.</figcaption></figure>
+    <figure class="full"><img src="img/shots/agrafe-sprawy.jpg" alt="Agrafe: rejestr spraw z priorytetami, terminami i najbliższymi zadaniami" width="2321" height="1289"><figcaption>Agrafe: rejestr spraw — priorytety, terminy, wyjaśnienia pism. Prawdziwa sprawa i konto zamazane.</figcaption></figure>
+    <figure class="full"><img src="img/shots/agrafe-kalendarz.jpg" alt="Agrafe: kalendarz terminów i zadania wynikające z pism, synchronizowane z Google" width="1898" height="579"><figcaption>Kalendarz i zadania z pism — synchronizacja z Kalendarzem i Zadaniami Google.</figcaption></figure>
+  </div>
+</section>
+
+<section id="eksperyment" class="section">
+  <div class="section-head"><span class="num">03</span><h2 class="h2">Eksperyment: AI w języku, którego nie znam</h2></div>
+  <div class="read">
+    <p class="q">Czy programista PHP, który zna zasady dobrego kodu, zbuduje działający projekt w Pythonie albo C++, opierając się na AI?</p>
+    <div class="txt">
+      <p><strong>Moja odpowiedź po dwóch projektach: tak</strong>, bo architektura, testy i czytelność są takie same w każdym języku. Ja pilnuję wymagań, struktury i testów, AI pisze kod.</p>
+      <p>Język przestaje być barierą. Zostaje jedno: trzeba znać mocne i słabe strony języka, żeby wiedzieć, czego można od AI wymagać, a czego nie. Większą różnicę robi rodzaj aplikacji niż język. Na co dzień robię aplikacje webowe. Desktopowa – jak komunikator – to inne wymagania: urządzenia audio, instalacja w systemie, działanie bez przeglądarki. Tu uczę się najwięcej.</p>
+      <p>A ktoś, kto w ogóle nie programuje? Prostą stronę albo małą aplikację też zrobi – zależy, jakiego AI użyje i jak duży jest projekt. Na początku zwykle działa. Kłopot przychodzi później i nie ma w tym niczyjej winy: autor, który nie rozumie, co powstało, za miesiąc nie umie przekazać AI dobrego kontekstu. AI bez kontekstu czasem trafi, a czasem coś zepsuje. Z każdym nowym elementem jest więcej rzeczy do ogarnięcia – i rośnie ryzyko, że wszystko się posypie.</p>
+      <p>Dlatego granica jest jasna: <strong>im większy projekt, tym bardziej potrzebne jest zrozumienie tego, co się buduje.</strong> szukaj jest mały i zamknięty. komunikator ma duże pole do rozwoju, więc ten sprawdzian wciąż trwa.</p>
+    </div>
+  </div>
+
+  <div class="grid-cards">
+    <article class="card card-sm" data-project="szukaj">
+      <div class="row"><span class="tags"><span class="lang">Python</span></span><span class="state"><span class="dot"></span>mały, zamknięty</span></div>
+      <h3 class="card-name card-name--sm">szukaj</h3>
+      <p>Prywatna wyszukiwarka dla ludzi i agentów AI: SearXNG, serwer MCP i polski interfejs w React.</p>
+      <div class="tags"><span>SearXNG</span><span>MCP</span><span>React</span><span>Docker</span></div>
+      <a class="more" href="projekty/szukaj/">Zobacz projekt →</a>
+    </article>
+    <article class="card card-sm" data-project="komunikator">
+      <div class="row"><span class="tags"><span class="lang">C++</span></span><span class="state"><span class="dot dot--ring"></span>sprawdzian trwa</span></div>
+      <h3 class="card-name card-name--sm">komunikator</h3>
+      <p>Mowa ↔ tekst na pulpicie: mów, zapisuj, odsłuchuj i przepisuj — przez otwarty protokół Wyoming, z oknem Qt.</p>
+      <div class="tags"><span>C++17</span><span>Qt 5</span><span>Wyoming</span></div>
+      <a class="more" href="projekty/komunikator/">Zobacz projekt →</a>
+    </article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head" style="margin-bottom:32px"><span class="num">04</span><h2 class="h2 h2--small">Zadania rekrutacyjne</h2></div>
+  <p class="lead-in">Zadania z procesów rekrutacyjnych — konkretne wymagania i termin. Jako ciekawostka.</p>
+  <div class="list">
+    <a href="https://github.com/mafio69/kolejki"><span class="mono">kolejki</span><span class="muted">REST API z testami i testami wydajności k6 ↗</span></a>
+    <a href="https://github.com/mafio69/petstore-crud"><span class="mono">petstore-crud</span><span class="muted">CRUD w Symfony 7, architektura heksagonalna ↗</span></a>
+  </div>
+</section>
+
+<section id="doswiadczenie" class="section">
+  <div class="section-head"><span class="num">05</span><h2 class="h2">Doświadczenie</h2></div>
+  <div>
+    <div class="job">
+      <span class="when">02.2022 – 04.2024</span>
+      <div class="what"><span class="role">Full Stack Developer · Rubix</span><span class="desc">Utrzymanie i rozwój dużego systemu legacy: trudne błędy, optymalizacja bazy danych, udział we wdrożeniach. Praca zdalna.</span></div>
+    </div>
+    <div class="job">
+      <span class="when">03.2021 – 02.2022</span>
+      <div class="what"><span class="role">Full Stack Developer · ccFound</span><span class="desc">Migracja starego kodu do Symfony, nowe REST API, wdrożenia serverless w Google Cloud.</span></div>
+    </div>
+    <div class="job">
+      <span class="when">11.2019 – 12.2020</span>
+      <div class="what"><span class="role">PHP Web Developer · Sescom Polska</span><span class="desc">Aplikacje w Laravel, system urlopów, jakość kodu według SOLID i DRY.</span></div>
+    </div>
+    <div class="job">
+      <span class="when">08.2017 – 10.2019</span>
+      <div class="what"><span class="role">Web Developer · Asist</span><span class="desc">Aplikacje webowe w PHP, porównywarka ubezpieczeń samochodowych liczona co do grosza zgodnie z cenami polis, system CRM.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="kontakt" class="contact">
+  <span class="num">06 · Kontakt</span>
+  <h2>Masz małe zlecenie albo kod do przejrzenia?</h2>
+  <p>Napisz krótko, czego potrzebujesz: audyt kodu albo bazy danych, pojedynczy moduł, pomoc, gdy w zespole brakuje rąk.</p>
+  <div class="btns">
+    <a class="btn btn--main" href="mailto:mariusz@mafio.pl">mariusz@mafio.pl</a>
+    <a class="btn btn--line" href="https://www.linkedin.com/in/mariusz-franciszczak-mafio/">LinkedIn</a>
+    <a class="btn btn--line" href="https://github.com/mafio69">GitHub</a>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <span>© 2026 Mariusz Franciszczak</span><span class="mono">mafio69.github.io</span>
+</footer>
+
 </div>
-
-<div id="app" v-cloak>
-    <nav>
-        <div class="nav-container">
-            <div class="logo">Mariusz</div>
-            <button class="menu-btn" v-on:click="toggleMenu">Menu</button>
-            <div class="nav-menu" v-bind:class="{ active: menuOpen }">
-                <a href="#about" v-on:click="menuOpen = false">{{ t('nav.about') }}</a>
-                <a href="#projects" v-on:click="menuOpen = false">{{ t('nav.projects') }}</a>
-                <a href="#skills" v-on:click="menuOpen = false">{{ t('nav.skills') }}</a>
-                <a href="#contact" v-on:click="menuOpen = false">{{ t('nav.contact') }}</a>
-            </div>
-            <div class="lang-switcher">
-                <button v-on:click="setLocale('en')" v-bind:class="{ active: locale === 'en' }">🇬🇧</button>
-                <button v-on:click="setLocale('pl')" v-bind:class="{ active: locale === 'pl' }">🇵🇱</button>
-            </div>
-        </div>
-    </nav>
-
-    <section class="hero">
-        <div class="hero-content">
-            <h1>{{ t('hero.title') }}</h1>
-            <p>{{ t('hero.desc') }}</p>
-            <div class="button-group">
-                <a href="#contact" class="btn btn-primary">{{ t('hero.contactBtn') }}</a>
-                <a href="https://github.com/mafio69" target="_blank" class="btn btn-secondary">{{ t('hero.githubBtn') }}</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="about">
-        <h2>{{ t('section.about') }}</h2>
-        <div>
-            <div v-for="exp in localizedExperiences" v-bind:key="exp.id" class="experience-card">
-                <div class="exp-header">
-                    <div>
-                        <div class="exp-company">{{ exp.company }}</div>
-                        <div class="exp-role">{{ exp.role }}</div>
-                    </div>
-                    <div class="exp-period">{{ exp.period }}</div>
-                </div>
-                <div class="exp-desc">{{ exp.description }}</div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects">
-        <h2>{{ t('section.projects') }}</h2>
-        <div class="projects-grid">
-            <a v-for="project in localizedProjects" v-bind:key="project.id" v-bind:href="project.link" target="_blank" class="project-card">
-                <div class="project-header">
-                    <div>
-                        <div class="project-title">{{ project.name }}</div>
-                        <div class="project-desc">{{ project.desc }}</div>
-                    </div>
-                </div>
-                <div class="tech-tags">
-                    <span v-for="tech in project.tech" v-bind:key="tech" class="tech-tag">{{ tech }}</span>
-                </div>
-            </a>
-        </div>
-    </section>
-
-    <section id="skills">
-        <h2>{{ t('section.skills') }}</h2>
-        <div class="skills-grid">
-            <div v-for="skillGroup in localizedSkills" v-bind:key="skillGroup.category" class="skill-category">
-                <div class="skill-title">{{ skillGroup.category }}</div>
-                <div class="skill-items">
-                    <span v-for="item in skillGroup.items" v-bind:key="item" class="skill-item">{{ item }}</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact-section">
-        <h2>{{ t('section.contact') }}</h2>
-        <p class="contact-text">{{ t('contact.text') }}</p>
-        <div class="contact-buttons">
-            <a href="mailto:mafio19@pm.me" class="contact-btn">Email</a>
-            <a href="https://www.linkedin.com/in/mariusz-franciszczak-mafio/" target="_blank" class="contact-btn">LinkedIn</a>
-            <a href="https://github.com/mafio69" target="_blank" class="contact-btn">GitHub</a>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; {{ year }} {{ t('footer.text') }}</p>
-    </footer>
-</div>
-
-<script src="js/app.js"></script>
 </body>
 </html>
