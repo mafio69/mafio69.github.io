@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>szukaj — wyszukiwarka dla ludzi i agentów AI · Mariusz Franciszczak</title>
+<meta name="description" content="Własna wyszukiwarka dla ludzi i agentów AI — jeden punkt dostępu do internetu w domowej sieci.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mafio69.github.io/projekty/szukaj/">
+<meta property="og:title" content="szukaj — wyszukiwarka dla ludzi i agentów AI">
+<meta property="og:description" content="Własna wyszukiwarka dla ludzi i agentów AI — jeden punkt dostępu do internetu w domowej sieci.">
+<meta property="og:image" content="https://mafio69.github.io/img/og-szukaj.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<script>
+  try { var t = localStorage.getItem('theme'); } catch (e) {}
+  document.documentElement.dataset.theme = t || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/tokens.css">
+<link rel="stylesheet" href="../../css/site.css">
+<script src="../../js/bg-fx.js" defer></script>
+<script src="../../js/theme.js" defer></script>
+</head>
+<body data-project="szukaj">
+<div class="wrap">
+<header class="top">
+  <a class="brand" href="../../"><img src="../../favicon.svg" alt=""><span class="back">←</span>Mariusz Franciszczak</a>
+  <button class="theme-btn" type="button" aria-label="Zmień motyw">Ciemny</button>
+</header>
+
+<main>
+<section class="p-hero">
+  <div class="hero-fx hero-fx--spot" aria-hidden="true"><bg-fx kind="spotlight"></bg-fx></div>
+  <div class="hero-in">
+    <div class="meta"><span class="tags"><span class="lang">Python</span></span>Eksperyment · mały, zamknięty</div>
+    <h1>szukaj</h1>
+    <p class="tagline">Własna wyszukiwarka dla ludzi i agentów AI — jeden punkt dostępu do internetu w domowej sieci.</p>
+    <div class="tags"><span>Python 3.12</span><span>SearXNG</span><span>MCP Streamable HTTP</span><span>React 19</span><span>Docker Compose</span></div>
+    <div class="btns">
+      <a class="btn btn--main" href="https://github.com/mafio69/szukaj">Kod na GitHub</a>
+      <a class="btn btn--line" href="https://github.com/mafio69/szukaj#readme">Dokumentacja</a>
+    </div>
+  </div>
+</section>
+<section class="split">
+  <div class="label"><span class="num">02</span><h2>Problem → rozwiązanie</h2></div>
+  <div class="body ps">
+    <div class="p"><div class="k">Problem</div><p>Agent AI, który ma szukać w sieci, zwykle dostaje dostęp przez zewnętrzne API: płatne, z limitami i bez kontroli, dokąd trafiają zapytania.</p></div>
+    <div class="s"><div class="k">Rozwiązanie</div><p>Prywatna metawyszukiwarka SearXNG z serwerem MCP. Agenci i przeglądarka korzystają z tego samego silnika. Gdy SearXNG nic nie znajdzie, opcjonalnie odpowiada Perplexity — z dziennym limitem.</p></div>
+  </div>
+</section>
+<section class="split">
+  <div class="label"><span class="num">03</span><h2>Trzy decyzje inżynierskie</h2></div>
+  <ol class="body decisions"><li><span class="n">1</span><div><span class="t">Jednoznaczny status odpowiedzi</span><span class="w">Serwer zwraca ok, empty albo error. Klient (virral-agents) odróżnia „brak wyników” od awarii, zamiast pokazywać błąd przy pustej liście.</span></div></li><li><span class="n">2</span><div><span class="t">Wyszukiwanie nie blokuje serwera</span><span class="w">Logika jest asynchroniczna, z pulą połączeń. Jedno wolne zapytanie nie zatrzymuje interfejsu ani innych agentów.</span></div></li><li><span class="n">3</span><div><span class="t">Bezpieczne ustawienia domyślne</span><span class="w">Port tylko na 127.0.0.1, ochrona przed DNS rebinding, opcjonalny token Bearer dla /mcp, kontener bez uprawnień roota.</span></div></li></ol>
+</section>
+<section class="split">
+  <div class="label"><span class="num">04</span><h2>Jakość</h2><span class="hint">Tylko to, co da się sprawdzić.</span></div>
+  <div class="body quality"><a href="https://github.com/mafio69/szukaj/tree/master/tests"><span class="l">Testy pytest</span><span class="pr">serwer MCP i API przeglądarki ↗</span></a><a href="https://github.com/mafio69/szukaj/tree/master/docs/contract"><span class="l">Wspólny kontrakt</span><span class="pr">przykłady JSON dla obu repozytoriów ↗</span></a><a href="https://github.com/mafio69/szukaj/blob/master/scripts/smoke_test.py"><span class="l">Smoke test wdrożenia</span><span class="pr">scripts/smoke_test.py ↗</span></a></div>
+</section>
+<section class="split">
+  <div class="label"><span class="num">05</span><h2>Jak pracowałem z AI</h2></div>
+  <div class="body ai">
+    <div><span class="who">Ja</span><ul><li>Wymagania</li><li>Architektura</li><li>Przegląd kodu</li><li>Testy</li></ul></div>
+    <div class="them"><span class="who">AI</span><ul><li>Pisanie kodu</li></ul><p class="note">Pythona nie znam na co dzień. Kod pisało AI, a ja ustalałem wymagania i kontrakt z virral-agents, zleciłem audyt i sprawdzałem działanie w domowej sieci.</p></div>
+  </div>
+</section>
+<section class="split">
+  <div class="label"><span class="num">06</span><h2>Stan i co dalej</h2></div>
+  <div class="body next">
+    <span class="pill"><span class="dot dot--accent"></span>Działa w domowej sieci · wydanie 0.1.0</span>
+    <ul><li>Wydanie 1.0.0 po potwierdzeniu integracji z virral-agents</li><li>Domknięcie kontroli wdrożeniowych opisanych w STATUS.md</li></ul>
+  </div>
+</section>
+<section class="section" style="padding:clamp(32px,5vw,56px) 0">
+  <div class="num" style="margin-bottom:16px">Inne projekty</div>
+  <div class="others"><a href="../virral-agents/" data-project="virral"><span><span class="nm">virral-agents</span><span class="lg">PHP</span></span><span aria-hidden="true">→</span></a><a href="../komunikator/" data-project="komunikator"><span><span class="nm">komunikator</span><span class="lg">C++</span></span><span aria-hidden="true">→</span></a></div>
+</section>
+</main>
+
+<footer class="foot">
+  <span>© 2026 Mariusz Franciszczak</span><span class="mono">mafio69.github.io/projekty/szukaj/</span>
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+/* mafio69.github.io — tokeny. Jasny domyślnie, ciemny przez [data-theme="dark"] lub prefers-color-scheme. */
+:root, [data-theme="light"] {
+  --font: "IBM Plex Sans", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+  --bg: oklch(0.985 0.004 85);
+  --surface: oklch(1 0 0);
+  --surface-2: oklch(0.96 0.006 85);
+  --ink: oklch(0.21 0.015 260);
+  --muted: oklch(0.44 0.015 260);
+  --faint: oklch(0.56 0.012 260);
+  --line: oklch(0.89 0.008 260);
+  --line-strong: oklch(0.8 0.01 260);
+  --btn-bg: oklch(0.21 0.015 260);
+  --btn-ink: oklch(0.985 0.004 85);
+  --ok: oklch(0.55 0.14 150);
+  --php: oklch(0.48 0.17 290);  --php-soft: oklch(0.95 0.03 290);
+  --py:  oklch(0.48 0.1 170);   --py-soft:  oklch(0.95 0.03 170);
+  --cpp: oklch(0.53 0.15 45);   --cpp-soft: oklch(0.95 0.035 50);
+  --r-sm: 8px; --r-md: 14px; --r-lg: 20px; --r-pill: 999px;
+  --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 24px; --s-6: 32px; --s-7: 48px; --s-8: 72px;
+  --text-body: 18px; --text-small: 16px; --text-mono: 14px; --lh-body: 1.65;
+  --page-max: 1120px; --read-max: 64ch;
+}
+[data-theme="dark"] {
+  --bg: oklch(0.17 0.012 260);
+  --surface: oklch(0.21 0.014 260);
+  --surface-2: oklch(0.24 0.015 260);
+  --ink: oklch(0.95 0.005 260);
+  --muted: oklch(0.75 0.012 260);
+  --faint: oklch(0.64 0.012 260);
+  --line: oklch(0.31 0.015 260);
+  --line-strong: oklch(0.4 0.015 260);
+  --btn-bg: oklch(0.95 0.005 260);
+  --btn-ink: oklch(0.17 0.012 260);
+  --ok: oklch(0.74 0.15 150);
+  --php: oklch(0.76 0.13 290);  --php-soft: oklch(0.27 0.05 290);
+  --py:  oklch(0.78 0.11 170);  --py-soft:  oklch(0.26 0.04 170);
+  --cpp: oklch(0.79 0.13 55);   --cpp-soft: oklch(0.27 0.045 50);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: oklch(0.17 0.012 260); --surface: oklch(0.21 0.014 260); --surface-2: oklch(0.24 0.015 260);
+    --ink: oklch(0.95 0.005 260); --muted: oklch(0.75 0.012 260); --faint: oklch(0.64 0.012 260);
+    --line: oklch(0.31 0.015 260); --line-strong: oklch(0.4 0.015 260);
+    --btn-bg: oklch(0.95 0.005 260); --btn-ink: oklch(0.17 0.012 260); --ok: oklch(0.74 0.15 150);
+    --php: oklch(0.76 0.13 290); --php-soft: oklch(0.27 0.05 290);
+    --py: oklch(0.78 0.11 170); --py-soft: oklch(0.26 0.04 170);
+    --cpp: oklch(0.79 0.13 55); --cpp-soft: oklch(0.27 0.045 50);
+  }
+}
+/* Akcent projektu: ustaw data-project na karcie / <body> podstrony */
+[data-project="virral"]     { --accent: var(--php); --accent-soft: var(--php-soft); }
+[data-project="szukaj"]     { --accent: var(--py);  --accent-soft: var(--py-soft); }
+[data-project="komunikator"]{ --accent: var(--cpp); --accent-soft: var(--cpp-soft); }
