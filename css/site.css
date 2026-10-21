@@ -256,7 +256,12 @@ h1, h2, h3 { margin: 0; text-wrap: balance; }
   gap: 8px;
 }
 .card-sm .state { display: flex; align-items: center; gap: 8px; font-size: 15px; color: var(--muted); }
-.card-shot { border-radius: 12px; border: 1px solid var(--line); }
+.priv-shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; margin-top: 16px; }
+.priv-shots figure { margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.priv-shots figure:first-child, .priv-shots .wide { grid-column: span 2; }
+.priv-shots img { border-radius: 14px; border: 1px solid var(--line); }
+.priv-shots figcaption { font-size: 16px; color: var(--muted); }
+@media (max-width: 640px) { .priv-shots figure:first-child, .priv-shots .wide { grid-column: auto; } }
 .card-sm .more { margin-top: auto; padding-top: 6px; font-weight: 600; font-size: 16px; }
 
 /* --- listy (mniejsze projekty, zadania rekrutacyjne) --- */
