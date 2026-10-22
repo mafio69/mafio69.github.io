@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>komunikator — speech ↔ text in C++17 · Mariusz Franciszczak</title>
+<meta name="description" content="Speech on the command line and the desktop: say it, save it, hear it back, transcribe it.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mafio69.github.io/en/projects/komunikator/">
+<meta property="og:title" content="komunikator — speech ↔ text in C++17">
+<meta property="og:description" content="Speech on the command line and the desktop: say it, save it, hear it back, transcribe it.">
+<meta property="og:image" content="https://mafio69.github.io/img/og-komunikator.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" hreflang="pl" href="https://mafio69.github.io/projekty/komunikator/">
+<link rel="alternate" hreflang="en" href="https://mafio69.github.io/en/projects/komunikator/">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<script>
+  try { var t = localStorage.getItem('theme'); } catch (e) {}
+  document.documentElement.dataset.theme = t || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../css/tokens.css">
+<link rel="stylesheet" href="../../../css/site.css">
+<script src="../../../js/bg-fx.js" defer></script>
+<script src="../../../js/theme.js" defer></script>
+</head>
+<body data-project="komunikator">
+<div class="wrap">
+
+<header class="top">
+  <a class="brand" href="../../"><img src="../../../favicon.svg" alt=""><span class="back">←</span>Mariusz Franciszczak</a>
+  <nav class="nav"><a href="../../../projekty/komunikator/" hreflang="pl" lang="pl">PL</a>
+  <button class="theme-btn" type="button" aria-label="Toggle theme">Dark</button></nav>
+</header>
+
+<main>
+<section class="p-hero">
+  <div class="hero-fx hero-fx--spot" aria-hidden="true"><bg-fx kind="spotlight"></bg-fx></div>
+  <div class="hero-in">
+    <div class="meta"><span class="tags"><span class="lang">C++</span></span>Experiment · test in progress</div>
+    <h1>komunikator</h1>
+    <p class="tagline">Speech on the command line and the desktop: say it, save it, hear it back, transcribe it.</p>
+    <div class="tags"><span>C++17</span><span>Qt 5</span><span>Wyoming</span><span>Piper</span><span>faster-whisper</span><span>Linux</span></div>
+    <div class="btns">
+      <a class="btn btn--main" href="https://github.com/mafio69/komunikator">Code on GitHub</a>
+      <a class="btn btn--line" href="https://github.com/mafio69/komunikator/blob/master/README.pl.md">Documentation</a>
+    </div>
+  </div>
+</section>
+<section class="split">
+  <div class="label"><span class="num">02</span><h2>Problem → solution</h2></div>
+  <div class="body ps">
+    <div class="p"><div class="k">Problem</div><p>A home with a voice assistant needed one voice for scripts, timers and people — one that keeps working when the network or a cloud service doesn&#x27;t.</p></div>
+    <div class="s"><div class="k">Solution</div><p>A small dependency-free C++17 engine that speaks the Wyoming protocol itself to Piper (text → speech) and faster-whisper (speech → text), plus a calm Qt window. Saved messages play even with the speech server down.</p></div>
+  </div>
+</section>
+<section class="section" style="padding:clamp(32px,5vw,56px) 0">
+  <div class="section-head" style="margin-bottom:24px"><span class="num">03</span><h2 style="font-size:22px;font-weight:600">Screenshots</h2></div>
+  <div class="shots shots--tall"><figure><img src="../../../img/shots/komunikator-powiedz-jasny.png" alt="Say — type, press Enter, hear it." width="480" height="760"><figcaption>Say — type, press Enter, hear it.</figcaption></figure><figure><img src="../../../img/shots/komunikator-nagrywanie-jasny.png" alt="Listen — record and transcribe speech." width="480" height="760"><figcaption>Listen — record and transcribe speech.</figcaption></figure><figure><img src="../../../img/shots/komunikator-komunikaty-ciemny.png" alt="Messages — ready-made phrases, offline too." width="480" height="760"><figcaption>Messages — ready-made phrases, offline too.</figcaption></figure></div>
+</section>
+<section class="split">
+  <div class="label"><span class="num">04</span><h2>Three engineering decisions</h2></div>
+  <ol class="body decisions"><li><span class="n">1</span><div><span class="t">Zero dependencies at the core</span><span class="w">The engine needs only a C++17 compiler: its own JSON, WAV and Wyoming client. Fewer things to break on a system update.</span></div></li><li><span class="n">2</span><div><span class="t">One command for everyone</span><span class="w">Results on stdout, diagnostics on stderr, documented exit codes. A script, a cron job and a person at the keyboard use the same interface.</span></div></li><li><span class="n">3</span><div><span class="t">Never a raw error</span><span class="w">The user sees one plain sentence: what happened and what to do. Technical details go to a log file.</span></div></li></ol>
+</section>
+<section class="split">
+  <div class="label"><span class="num">05</span><h2>Quality</h2><span class="hint">Only what can be verified.</span></div>
+  <div class="body quality"><a href="https://github.com/mafio69/komunikator/blob/master/Makefile"><span class="l">No warnings</span><span class="pr">-Wall -Wextra -Wpedantic, -Werror ↗</span></a><a href="https://github.com/mafio69/komunikator/blob/master/README.pl.md#jako%C5%9B%C4%87"><span class="l">ASan + UBSan</span><span class="pr">the full test suite under sanitizers ↗</span></a><a href="https://github.com/mafio69/komunikator/tree/master/testy"><span class="l">58 tests</span><span class="pr">23 unit + 35 integration ↗</span></a></div>
+</section>
+<section class="split">
+  <div class="label"><span class="num">06</span><h2>How I worked with AI</h2></div>
+  <div class="body ai">
+    <div><span class="who">Me</span><ul><li>Requirements</li><li>Architecture</li><li>Code review</li><li>Tests</li></ul></div>
+    <div class="them"><span class="who">AI</span><ul><li>Writing the code</li></ul><p class="note">I don&#x27;t know C++. Claude writes the code under a “no shortcuts” rule; I set the goals, make the decisions and test on real hardware at home. Commits made with AI carry a Co-Authored-By trailer.</p></div>
+  </div>
+</section>
+<section class="split">
+  <div class="label"><span class="num">07</span><h2>Status and next steps</h2></div>
+  <div class="body next">
+    <span class="pill"><span class="dot dot--accent"></span>In development · test in progress</span>
+    <ul><li>Split the two largest files into modules</li><li>Automated tests on GitHub Actions</li><li>Background mode with a speech queue</li></ul>
+  </div>
+</section>
+<section class="section" style="padding:clamp(32px,5vw,56px) 0">
+  <div class="num" style="margin-bottom:16px">Other projects</div>
+  <div class="others"><a href="../virral-agents/" data-project="virral"><span><span class="nm">virral-agents</span><span class="lg">PHP</span></span><span aria-hidden="true">→</span></a><a href="../szukaj/" data-project="szukaj"><span><span class="nm">szukaj</span><span class="lg">Python</span></span><span aria-hidden="true">→</span></a></div>
+</section>
+</main>
+
+<footer class="foot">
+  <span>© 2026 Mariusz Franciszczak</span><span class="mono">mafio69.github.io/en/projects/komunikator/</span>
+</footer>
+
+</div>
+</body>
+</html>

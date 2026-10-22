@@ -5,8 +5,13 @@
   const button = document.querySelector('.theme-btn');
   if (!button) return;
 
+  const isEnglish = root.lang === 'en';
+  const labels = isEnglish
+    ? { dark: 'Light', light: 'Dark' }
+    : { dark: 'Jasny', light: 'Ciemny' };
+
   const label = () => {
-    button.textContent = root.dataset.theme === 'dark' ? 'Jasny' : 'Ciemny';
+    button.textContent = root.dataset.theme === 'dark' ? labels.dark : labels.light;
   };
 
   button.addEventListener('click', () => {

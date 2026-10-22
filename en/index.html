@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mariusz Franciszczak — PHP developer</title>
+<meta name="description" content="PHP developer (Symfony, Slim, Laravel, Docker), 6+ years of commercial experience. I build real projects with AI. Available for small tasks and code audits.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mafio69.github.io/en/">
+<meta property="og:title" content="Mariusz Franciszczak — PHP developer">
+<meta property="og:description" content="Real projects built with AI: PHP every day, Python and C++ as an experiment. Small tasks and code audits.">
+<meta property="og:image" content="https://mafio69.github.io/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" hreflang="pl" href="https://mafio69.github.io/">
+<link rel="alternate" hreflang="en" href="https://mafio69.github.io/en/">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<script>
+  try { var t = localStorage.getItem('theme'); } catch (e) {}
+  document.documentElement.dataset.theme = t || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/site.css">
+<script src="../js/bg-fx.js" defer></script>
+<script src="../js/theme.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <a class="brand" href="./"><img src="../favicon.svg" alt="">Mariusz Franciszczak</a>
+  <nav class="nav" aria-label="Main">
+    <a href="#projects">Projects</a>
+    <a href="#private">Private</a>
+    <a href="#experiment">Experiment</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+    <a href="../" hreflang="pl" lang="pl">PL</a>
+    <button class="theme-btn" type="button" aria-label="Toggle theme">Dark</button>
+  </nav>
+</header>
+
+<main>
+<section class="hero">
+  <div class="hero-fx" aria-hidden="true"><bg-fx kind="dots"></bg-fx></div>
+  <div class="hero-in">
+    <span class="pill"><span class="dot"></span>Available for small, well-defined tasks and code audits</span>
+    <h1>A PHP developer who builds real projects with AI.</h1>
+    <p class="sub">6+ years of commercial experience: Symfony, Slim, Laravel, Docker. In new projects I own the requirements, architecture and tests — AI writes the code. PHP every day; Python and C++ as an experiment.</p>
+    <div class="btns">
+      <a class="btn btn--main" href="#contact">Get in touch</a>
+      <a class="btn btn--line" href="https://github.com/mafio69">GitHub</a>
+    </div>
+    <div class="langs">
+      <span data-project="virral">PHP</span>
+      <span data-project="szukaj">Python</span>
+      <span data-project="komunikator">C++</span>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="section">
+  <div class="section-head"><span class="num">01</span><h2 class="h2">PHP projects</h2></div>
+
+  <article class="card card-big" data-project="virral">
+    <div class="card-body">
+      <div class="tags"><span class="lang">PHP</span><span>latest</span></div>
+      <h3 class="card-name">virral-agents</h3>
+      <p>A private chat with many AI models on your own server. The model can only suggest a web search — it runs only after the user approves it. Chat history is encrypted in the database.</p>
+      <div class="tags"><span>Slim 4</span><span>PHP 8.4</span><span>6 AI providers</span><span>encryption</span><span>Docker</span></div>
+      <div class="btns">
+        <a class="btn btn--sm btn--main" href="projects/virral-agents/">View project →</a>
+        <a class="btn btn--sm btn--line" href="https://github.com/mafio69/virral-agents">Code</a>
+      </div>
+    </div>
+    <div class="card-pic">
+      <img src="../img/shots/virral-czat.jpg" alt="virral-agents chat window with a source list and a message box" width="1280" height="720" loading="lazy">
+    </div>
+  </article>
+
+  <div class="list" style="margin-top:24px">
+    <a href="https://github.com/mafio69/fast-php-log-viewer"><span class="mono">fast-php-log-viewer</span><span class="muted">standalone PHP log viewer ↗</span></a>
+    <a href="https://github.com/mafio69/php-devcontainer-starter"><span class="mono">php-devcontainer-starter</span><span class="muted">project starter: PHP + Docker + quality tooling ↗</span></a>
+    <a href="https://github.com/mafio69/php-logger"><span class="mono">php-logger</span><span class="muted">PSR-3 logger as a Composer package ↗</span></a>
+  </div>
+</section>
+
+<section id="private" class="section">
+  <div class="section-head"><span class="num">02</span><h2 class="h2">Private projects</h2></div>
+  <div class="read" style="margin-bottom:32px">
+    <p class="txt">Two projects I use every day. The code is private: both are still in development and connect to many services — AI models, email, calendar, a cloud database. Secrets are kept encrypted, but with this many integrations I prefer to open the code only after a security audit. Happy to show how they work.</p>
+  </div>
+  <div class="grid-cards">
+    <article class="card card-sm" data-project="virral">
+      <div class="row"><span class="tags"><span class="lang">PHP</span></span><span class="state"><span class="dot"></span>runs 24/7 at home</span></div>
+      <h3 class="card-name card-name--sm">DevBrain</h3>
+      <p>A developer’s “second brain”: tasks, email monitoring and an MCP server through which AI agents add and complete tasks.</p>
+      <div class="tags"><span>Symfony 8.1</span><span>PHP 8.4</span><span>HTMX</span><span>PostgreSQL 17</span><span>MCP</span></div>
+      <a class="more" href="#contact">Ask for a demo →</a>
+    </article>
+    <article class="card card-sm" data-project="ts">
+      <div class="row"><span class="tags"><span class="lang">TypeScript</span></span><span class="state"><span class="dot dot--ring"></span>in development</span></div>
+      <h3 class="card-name card-name--sm">Agrafe</h3>
+      <p>Official paperwork, explained: drop in a letter from an authority, a photo or a PDF — Agrafe explains in plain language what it is, what the deadline is and what to do step by step. Deadlines go to Google Calendar, tasks to a list. Documents are encrypted; names and numbers are masked on screen.</p>
+      <div class="tags"><span>React 19</span><span>Node 22</span><span>vision AI</span><span>Google API</span><span>Vitest</span></div>
+      <a class="more" href="#contact">Ask for a demo →</a>
+    </article>
+  </div>
+  <div class="priv-shots" data-project="virral">
+    <figure><img src="../img/shots/devbrain-panel.jpg" alt="DevBrain dashboard: clock, pomodoro, tasks, backups, home-server service links, OCR scan" width="2558" height="1105"><figcaption>DevBrain on desktop: tasks, pomodoro, backups, server services, OCR. Private data blurred.</figcaption></figure>
+    <figure><img src="../img/shots/devbrain-tokeny-mcp.jpg" alt="DevBrain on a phone: MCP access tokens with expiry" width="637" height="556"><figcaption>On a phone: MCP tokens for AI agents, with expiry dates.</figcaption></figure>
+    <figure><img src="../img/shots/devbrain-notatki.jpg" alt="DevBrain: key–value notes, sensitive values hidden" width="1301" height="742"><figcaption>Key → value notes: commands at hand, sensitive values hidden.</figcaption></figure>
+    <figure><img src="../img/shots/devbrain-lista.jpg" alt="Task list of the ocr-ai project with priorities P0–P3" width="656" height="741"><figcaption>Prioritised tasks — here, a review of the ocr-ai project.</figcaption></figure>
+    <figure class="full"><img src="../img/shots/devbrain-zadanie.jpg" alt="Editing a task in DevBrain: description, status, branch, comments" width="1251" height="683"><figcaption>A task: the change and its rationale, status, branch link, comments.</figcaption></figure>
+    <figure class="full"><img src="../img/shots/agrafe-start.jpg" alt="Agrafe start screen: Google sign-in, access scopes, data protection" width="1932" height="1184"><figcaption>Agrafe start screen: Google sign-in and an explicit list of access scopes (Gmail, Drive, Calendar, Tasks). UI in Polish.</figcaption></figure>
+    <figure class="full"><img src="../img/shots/agrafe-nowe-pismo.jpg" alt="Agrafe: adding a new document — photo, file, email or manual entry" width="1878" height="891"><figcaption>Adding a document: photo, file (HEIC and PDF too), pasted email or a handwritten note.</figcaption></figure>
+    <figure class="full"><img src="../img/shots/agrafe-sprawy.jpg" alt="Agrafe: case register with priorities, deadlines and upcoming tasks" width="2321" height="1289"><figcaption>Agrafe case register — priorities, deadlines, plain-language explanations. A real case and the account are blurred.</figcaption></figure>
+    <figure class="full"><img src="../img/shots/agrafe-kalendarz.jpg" alt="Agrafe: deadline calendar and tasks from documents, synced with Google" width="1898" height="579"><figcaption>Calendar and tasks from documents — synced with Google Calendar and Google Tasks.</figcaption></figure>
+  </div>
+</section>
+
+<section id="experiment" class="section">
+  <div class="section-head"><span class="num">03</span><h2 class="h2">Experiment: AI in a language I don’t know</h2></div>
+  <div class="read">
+    <p class="q">Can a PHP developer who knows the principles of good code build a working project in Python or C++ by relying on AI?</p>
+    <div class="txt">
+      <p><strong>My answer after two projects: yes</strong>, because architecture, tests and readability are the same in every language. I own the requirements, structure and tests; AI writes the code.</p>
+      <p>The language stops being a barrier. One thing remains: you need to know the language’s strengths and weaknesses to know what you can and can’t demand from AI. The type of application matters more than the language. I build web apps every day. A desktop app – like komunikator – has different requirements: audio devices, system installation, running without a browser. That’s where I learn the most.</p>
+      <p>And someone who doesn’t code at all? They can build a simple website or a small app too – depending on the AI they use and the size of the project. At first it usually works. The trouble comes later, and it’s nobody’s fault: an author who doesn’t understand what was built can’t give the AI good context a month later. Without context, AI sometimes gets it right and sometimes breaks things. Every new piece adds more to keep track of – and the risk that everything falls apart grows.</p>
+      <p>So the line is clear: <strong>the bigger the project, the more you need to understand what you’re building.</strong> szukaj is small and finished. komunikator has a lot of room to grow, so this test is still going on.</p>
+    </div>
+  </div>
+
+  <div class="grid-cards">
+    <article class="card card-sm" data-project="szukaj">
+      <div class="row"><span class="tags"><span class="lang">Python</span></span><span class="state"><span class="dot"></span>small, finished</span></div>
+      <h3 class="card-name card-name--sm">szukaj</h3>
+      <p>A private search engine for people and AI agents: SearXNG, an MCP server and a Polish React UI.</p>
+      <div class="tags"><span>SearXNG</span><span>MCP</span><span>React</span><span>Docker</span></div>
+      <a class="more" href="projects/szukaj/">View project →</a>
+    </article>
+    <article class="card card-sm" data-project="komunikator">
+      <div class="row"><span class="tags"><span class="lang">C++</span></span><span class="state"><span class="dot dot--ring"></span>test in progress</span></div>
+      <h3 class="card-name card-name--sm">komunikator</h3>
+      <p>Speech ↔ text on the desktop: say, save, play back and transcribe — over the open Wyoming protocol, with a Qt window.</p>
+      <div class="tags"><span>C++17</span><span>Qt 5</span><span>Wyoming</span></div>
+      <a class="more" href="projects/komunikator/">View project →</a>
+    </article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head" style="margin-bottom:32px"><span class="num">04</span><h2 class="h2 h2--small">Recruitment tasks</h2></div>
+  <p class="lead-in">Tasks from hiring processes — specific requirements and a deadline. Just for interest.</p>
+  <div class="list">
+    <a href="https://github.com/mafio69/kolejki"><span class="mono">kolejki</span><span class="muted">REST API with tests and k6 performance tests ↗</span></a>
+    <a href="https://github.com/mafio69/petstore-crud"><span class="mono">petstore-crud</span><span class="muted">CRUD in Symfony 7, hexagonal architecture ↗</span></a>
+  </div>
+</section>
+
+<section id="experience" class="section">
+  <div class="section-head"><span class="num">05</span><h2 class="h2">Experience</h2></div>
+  <div>
+    <div class="job">
+      <span class="when">02.2022 – 04.2024</span>
+      <div class="what"><span class="role">Full Stack Developer · Rubix</span><span class="desc">Maintaining and developing a large legacy system: hard bugs, database optimisation, deployments. Remote.</span></div>
+    </div>
+    <div class="job">
+      <span class="when">03.2021 – 02.2022</span>
+      <div class="what"><span class="role">Full Stack Developer · ccFound</span><span class="desc">Migrating legacy code to Symfony, a new REST API, serverless deployments on Google Cloud.</span></div>
+    </div>
+    <div class="job">
+      <span class="when">11.2019 – 12.2020</span>
+      <div class="what"><span class="role">PHP Web Developer · Sescom Polska</span><span class="desc">Laravel applications, a leave-management system, code quality following SOLID and DRY.</span></div>
+    </div>
+    <div class="job">
+      <span class="when">08.2017 – 10.2019</span>
+      <div class="what"><span class="role">Web Developer · Asist</span><span class="desc">PHP web applications, a car insurance comparison engine accurate to the penny against real policy prices, a CRM system.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <span class="num">06 · Contact</span>
+  <h2>Have a small task or code to review?</h2>
+  <p>Tell me briefly what you need: a code or database audit, a single module, or help when your team is short-handed. Polish is my native language; my English is basic, so I prefer written contact.</p>
+  <div class="btns">
+    <a class="btn btn--main" href="mailto:mariusz@mafio.pl">mariusz@mafio.pl</a>
+    <a class="btn btn--line" href="https://www.linkedin.com/in/mariusz-franciszczak-mafio/">LinkedIn</a>
+    <a class="btn btn--line" href="https://github.com/mafio69">GitHub</a>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <span>© 2026 Mariusz Franciszczak</span><span class="mono">mafio69.github.io/en/</span>
+</footer>
+
+</div>
+</body>
+</html>
