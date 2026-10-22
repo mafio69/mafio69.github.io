@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>szukaj — search for people and AI agents · Mariusz Franciszczak</title>
+<meta name="description" content="Your own search engine for people and AI agents — one gateway to the internet on your home network.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mafio69.github.io/en/projects/szukaj/">
+<meta property="og:title" content="szukaj — search for people and AI agents">
+<meta property="og:description" content="Your own search engine for people and AI agents — one gateway to the internet on your home network.">
+<meta property="og:image" content="https://mafio69.github.io/img/og-szukaj.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" hreflang="pl" href="https://mafio69.github.io/projekty/szukaj/">
+<link rel="alternate" hreflang="en" href="https://mafio69.github.io/en/projects/szukaj/">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<script>
+  try { var t = localStorage.getItem('theme'); } catch (e) {}
+  document.documentElement.dataset.theme = t || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../css/tokens.css">
+<link rel="stylesheet" href="../../../css/site.css">
+<script src="../../../js/bg-fx.js" defer></script>
+<script src="../../../js/theme.js" defer></script>
+</head>
+<body data-project="szukaj">
+<div class="wrap">
+
+<header class="top">
+  <a class="brand" href="../../"><img src="../../../favicon.svg" alt=""><span class="back">←</span>Mariusz Franciszczak</a>
+  <nav class="nav"><a href="../../../projekty/szukaj/" hreflang="pl" lang="pl">PL</a>
+  <button class="theme-btn" type="button" aria-label="Toggle theme">Dark</button></nav>
+</header>
+
+<main>
+<section class="p-hero">
+  <div class="hero-fx hero-fx--spot" aria-hidden="true"><bg-fx kind="spotlight"></bg-fx></div>
+  <div class="hero-in">
+    <div class="meta"><span class="tags"><span class="lang">Python</span></span>Experiment · small, finished</div>
+    <h1>szukaj</h1>
+    <p class="tagline">Your own search engine for people and AI agents — one gateway to the internet on your home network.</p>
+    <div class="tags"><span>Python 3.12</span><span>SearXNG</span><span>MCP Streamable HTTP</span><span>React 19</span><span>Docker Compose</span></div>
+    <div class="btns">
+      <a class="btn btn--main" href="https://github.com/mafio69/szukaj">Code on GitHub</a>
+      <a class="btn btn--line" href="https://github.com/mafio69/szukaj#readme">Documentation</a>
+    </div>
+  </div>
+</section>
+<section class="split">
+  <div class="label"><span class="num">02</span><h2>Problem → solution</h2></div>
+  <div class="body ps">
+    <div class="p"><div class="k">Problem</div><p>An AI agent that needs to search the web usually gets it through an external API: paid, rate-limited, with no control over where the queries go.</p></div>
+    <div class="s"><div class="k">Solution</div><p>A private SearXNG metasearch engine with an MCP server. Agents and the browser use the same engine. When SearXNG finds nothing, Perplexity can answer as a fallback — with a daily limit.</p></div>
+  </div>
+</section>
+<section class="split">
+  <div class="label"><span class="num">03</span><h2>Three engineering decisions</h2></div>
+  <ol class="body decisions"><li><span class="n">1</span><div><span class="t">An explicit response status</span><span class="w">The server returns ok, empty or error. The client (virral-agents) can tell “no results” from a failure instead of showing an error for an empty list.</span></div></li><li><span class="n">2</span><div><span class="t">Search doesn&#x27;t block the server</span><span class="w">The logic is asynchronous with a connection pool. One slow query doesn&#x27;t freeze the UI or other agents.</span></div></li><li><span class="n">3</span><div><span class="t">Safe defaults</span><span class="w">Port bound to 127.0.0.1 only, DNS rebinding protection, an optional Bearer token for /mcp, a container without root privileges.</span></div></li></ol>
+</section>
+<section class="split">
+  <div class="label"><span class="num">04</span><h2>Quality</h2><span class="hint">Only what can be verified.</span></div>
+  <div class="body quality"><a href="https://github.com/mafio69/szukaj/tree/master/tests"><span class="l">pytest tests</span><span class="pr">MCP server and browser API ↗</span></a><a href="https://github.com/mafio69/szukaj/tree/master/docs/contract"><span class="l">Shared contract</span><span class="pr">JSON examples used by both repositories ↗</span></a><a href="https://github.com/mafio69/szukaj/blob/master/scripts/smoke_test.py"><span class="l">Deployment smoke test</span><span class="pr">scripts/smoke_test.py ↗</span></a></div>
+</section>
+<section class="split">
+  <div class="label"><span class="num">05</span><h2>How I worked with AI</h2></div>
+  <div class="body ai">
+    <div><span class="who">Me</span><ul><li>Requirements</li><li>Architecture</li><li>Code review</li><li>Tests</li></ul></div>
+    <div class="them"><span class="who">AI</span><ul><li>Writing the code</li></ul><p class="note">I don&#x27;t use Python day to day. AI wrote the code; I set the requirements and the contract with virral-agents, commissioned an audit and verified it on my home network.</p></div>
+  </div>
+</section>
+<section class="split">
+  <div class="label"><span class="num">06</span><h2>Status and next steps</h2></div>
+  <div class="body next">
+    <span class="pill"><span class="dot dot--accent"></span>Running on my home network · release 0.1.0</span>
+    <ul><li>Release 1.0.0 after confirming the virral-agents integration</li><li>Finish the deployment checks listed in STATUS.md</li></ul>
+  </div>
+</section>
+<section class="section" style="padding:clamp(32px,5vw,56px) 0">
+  <div class="num" style="margin-bottom:16px">Other projects</div>
+  <div class="others"><a href="../virral-agents/" data-project="virral"><span><span class="nm">virral-agents</span><span class="lg">PHP</span></span><span aria-hidden="true">→</span></a><a href="../komunikator/" data-project="komunikator"><span><span class="nm">komunikator</span><span class="lg">C++</span></span><span aria-hidden="true">→</span></a></div>
+</section>
+</main>
+
+<footer class="foot">
+  <span>© 2026 Mariusz Franciszczak</span><span class="mono">mafio69.github.io/en/projects/szukaj/</span>
+</footer>
+
+</div>
+</body>
+</html>

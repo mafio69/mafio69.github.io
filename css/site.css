@@ -330,7 +330,7 @@ h1, h2, h3 { margin: 0; text-wrap: balance; }
   font-size: 15px;
   color: var(--muted);
 }
-.foot .mono { font-size: var(--text-mono); }
+.foot .mono { font-size: var(--text-mono); overflow-wrap: anywhere; }
 
 /* --- podstrona projektu --- */
 .p-hero { position: relative; padding: clamp(40px, 7vw, 88px) 0 clamp(36px, 5vw, 56px); }
