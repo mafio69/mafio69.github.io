@@ -110,7 +110,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 **Mariusz Franciszczak**
 - Full Stack Developer
-- Email: mafio19@pm.me
+- Email: mariusz@mafio.pl
 - GitHub: [@mafio69](https://github.com/mafio69)
 - LinkedIn: [mariusz-franciszczak-mafio](https://www.linkedin.com/in/mariusz-franciszczak-mafio/)
 
